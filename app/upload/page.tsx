@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import FileDrop from '@/app/ui/FileDrop'
 import { createClassCalendar } from '@/app/lib/createCalendar'
-// import { uploadFile } from '@/app/lib/uploadFile'
 
 export default function Upload() {
     const [files, setFiles] = useState<File[]>([])
@@ -11,6 +10,14 @@ export default function Upload() {
     const [isUploading, setIsUploading] = useState<Boolean>(false)
     const [isDone, setIsDone] = useState<Boolean>(false)
     const [userEmail, setUserEmail] = useState<string>('')
+
+    function refreshPage() {
+        setIsUploading(false)
+        setIsDone(false)
+        setFiles([])
+        setMessage('')
+        setUserEmail('')
+    }
 
     function handleUpload() {
         if (isUploading) {
@@ -98,13 +105,24 @@ export default function Upload() {
                         </>
                     }
                     {isDone &&
-                        <div>
-                            <h1 className="text-2xl font-semibold text-black">Done!</h1>
+                        <>
+                            <div className='flex justify-between h-20'>
+                                <div>
+                                    <h1 className="text-2xl font-semibold text-black">Done!</h1>
 
-                            <div className='w-full flex mt-10'>
-                                <p>Check your inbox for a calendar invite!</p>
+                                    <div className='w-full flex mt-5'>
+                                        <p>Check your inbox for a calendar invite!</p>
+                                    </div>
+                                </div>
+                                <div className='w-24 h-24'>
+                                    <img src="/salamander_thumbs.png" className='object-contain'></img>
+                                </div>
                             </div>
-                        </div>
+                            
+                            <div className='flex justify-center'>
+                                <button className="px-8 py-2 bg-blue-500 text-white rounded-lg font-bold mt-20 w-fit" onClick={() => {refreshPage()}}>Another one!</button>
+                            </div>
+                        </>
                     }
                 </div>
             </div>

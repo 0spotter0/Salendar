@@ -44,7 +44,7 @@ export default function FileDrop({ setFiles }: FileDropProps) {
  
   return (
     <div
-      className={`flex justify-center items-center w-full text-black px-16 py-48 border-black border-2 border-dashed rounded-lg ${isOver ? "bg-blue-200" : "bg-transparent"}`}
+      className={`flex justify-center items-center w-full text-gray-400 px-16 py-48 border-gray-400 border-2 border-dashed rounded-lg ${isOver ? "bg-blue-200" : "bg-transparent"}`}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}

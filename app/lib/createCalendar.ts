@@ -26,16 +26,6 @@ const auth = new google.auth.GoogleAuth({
 
 const calendar = google.calendar({ version: 'v3', auth });
 
-// // Create a new calendar instance
-// const calendar = google.calendar({
-//     version: 'v3',
-//     auth: new google.auth.JWT({
-//         email: clientEmail,
-//         key: privateKey,
-//         scopes: ['https://www.googleapis.com/auth/calendar'],
-//     }),
-// });
-
 // TODO: Create wrapper function that client calls
 export async function createClassCalendar(syllabusText: string, userEmail: string): Promise<string | null> {
 
@@ -119,26 +109,6 @@ const createCalendar = async (title: string): Promise<calendar_v3.Schema$Calenda
     }
 };
 
-// // Function to create an eventData according to Google API
-
-// async function createEventData(assignment: Assignment): Promise<calendar_v3.Schema$Event | null> {
-//     const dateString = `${assignment.due_year}-${assignment.due_month}-${assignment.due_day}`
-
-//     const event: calendar_v3.Schema$Event = {
-//         summary: assignment.title,
-//         // location: 'Location',
-//         // description: 'Assignment description',
-//         start: {
-//             date: dateString,
-//         },
-//         end: {
-//             date: dateString,
-//         },
-//     };
-
-//     return event;
-// }
-
 // Function to add an event to a calendar
 const addEventToCalendar = async (calendarId: string, eventData: calendar_v3.Schema$Event): Promise<calendar_v3.Schema$Event | null> => {
 
@@ -154,29 +124,6 @@ const addEventToCalendar = async (calendarId: string, eventData: calendar_v3.Sch
         return null;
     }
 };
-
-// // Function to share a calendar with another user
-// const shareCalendar = async (calendarId: string, email: string): Promise<calendar_v3.Schema$AclRule | null> => {
-//     const rule: calendar_v3.Schema$AclRule = {
-//         role: 'writer', // Change the role as needed (writer, reader, owner, etc.)
-//         scope: {
-//             type: 'user',
-//             value: email,
-//         },
-//     };
-
-//     try {
-//         const response = await calendar.acl.insert({
-//             calendarId,
-//             requestBody: rule,
-//         });
-
-//         return response.data;
-//     } catch (error) {
-//         console.error('Error sharing calendar:', error);
-//         return null;
-//     }
-// };
 
 async function shareCalendar(newCalendar: calendar_v3.Schema$Calendar, email: string) {
     // Create an instance of the Calendar API

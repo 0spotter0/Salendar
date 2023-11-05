@@ -1,4 +1,5 @@
 # Salendar
+Submitted to DandyHacks 2023 at the University of Rochester
 
 ## Add your class schedule to your Google Calendar in seconds!
 Salendar makes setting up your class calendars a breeze. Simply upload your syllabus, and we'll send you a link to a Google Calendar that you can add to your existing Google Calendar.
@@ -33,4 +34,4 @@ npm run dev
 
 
 ---
-Submitted to DandyHacks 2023 at the University of Rochester
+Copyright ©️ 2023 Justin Lee & Sammy Potter. All Rights Reserved

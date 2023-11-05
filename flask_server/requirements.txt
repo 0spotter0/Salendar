@@ -1,0 +1,8 @@
+Flask
+PyMuPDF
+Werkzeug
+python-dotenv
+gunicorn
+openai
+docx2pdf
+Flask-Cors

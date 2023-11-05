@@ -2,14 +2,7 @@
 
 // google-calendar.ts
 import { google, calendar_v3 } from 'googleapis';
-const credentials = require('./dandyhacks-2023-656668fc2346.json');
-
-
-// Replace with your own credentials
-// const apiKey = process.env.GOOGLE_CALENDAR_API_KEY;
-// const clientId = process.env.GOOGLE_CALENDAR_CLIENT_ID;
-// const clientEmail = process.env.GOOGLE_CALENDAR_CLIENT_EMAIL;
-// const privateKey = process.env.GOOGLE_CALENDAR_PRIVATE_KEY;
+const credentials = require('@/google_cloud_credentials.json');
 
 type Assignment = {
     title: string;
@@ -17,7 +10,6 @@ type Assignment = {
     due_month: number;
     due_year: number;
 };
-
 
 const auth = new google.auth.GoogleAuth({
     credentials,
@@ -126,9 +118,6 @@ const addEventToCalendar = async (calendarId: string, eventData: calendar_v3.Sch
 };
 
 async function shareCalendar(newCalendar: calendar_v3.Schema$Calendar, email: string) {
-    // Create an instance of the Calendar API
-    // const calendar = google.calendar('v3');
-
     try {
         // Send the calendarId and the email to the API to share the calendar
         await calendar.acl.insert({

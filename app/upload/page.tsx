@@ -9,11 +9,17 @@ export default function Upload() {
     const [files, setFiles] = useState<File[]>([])
     const [message, setMessage] = useState<String>('')
     const [isUploading, setIsUploading] = useState<Boolean>(false)
+    const [isDone, setIsDone] = useState<Boolean>(false)
     const [userEmail, setUserEmail] = useState<string>('')
 
     function handleUpload() {
         if (isUploading) {
             setMessage("Already uploading!");
+            return;
+        }
+
+        if (userEmail == '') {
+            setMessage("Enter your email!");
             return;
         }
 
@@ -45,7 +51,9 @@ export default function Upload() {
                 console.log(`got text: ${data.syllabus_text}`)
 
                 // call Google Calendar API function
-                createClassCalendar(data.syllabus_text, userEmail);               
+                createClassCalendar(data.syllabus_text, userEmail).then(() => {
+                    setIsDone(true)
+                })
 
             } else {
                 console.log('got NOTHING');
@@ -57,11 +65,10 @@ export default function Upload() {
     return (
         <div className="h-screen flex justify-center bg-white text-black relative">
             <div className="flex w-[50%] h-fit">
-                <div className="flex flex-col gap-4 w-full mt-40">
-                    {/* <button onClick={() => setIsUploading(!isUploading)} className='bg-red-400 w-fit p-4 rounded-xl'>IsUploading: {isUploading && "true"}</button> */}
-                    {!isUploading && 
+                <div className="flex flex-col gap-4 w-full mt-20">
+                    {!isUploading && !isDone && 
                         <>
-                            <h1 className="text-4xl text-black">Upload a syllabus to get started!</h1>
+                            <h1 className="text-2xl text-black font-semibold">Upload a syllabus to get started!</h1>
                             
                             <FileDrop setFiles={setFiles} />
 
@@ -73,33 +80,47 @@ export default function Upload() {
                                 onBlur={(e) => setUserEmail(e.target.value)}
                             />
 
-                            <button onClick={() => { handleUpload() }} className="p-4 text-black rounded-xl bg-slate-300 w-40">
+                            <button onClick={() => { handleUpload() }} className="p-4 font-bold text-white rounded-xl bg-blue-500 w-40">
                                 Upload!
                             </button>
-                            <p>{message}</p>
+                            <p className='font-semibold text-red-400 underline w-fit rounded-lg'>{message}</p>
                         </>
                     }
-                    {isUploading &&
+                    {isUploading && !isDone &&
                         <>
-                            <h1 className="text-4xl text-black">Uploading...</h1>
+                            <h1 className="text-2xl font-semibold text-black">Uploading...</h1>
 
                             <div className='w-full flex justify-center mt-10'>
-                                <div className='w-12 h-12'>
-                                    <img src="/loading.gif" className='object-fit'></img>
+                                <div className='w-60 h-60'>
+                                    <img src="/salamander_thick.png" className='animate-spin object-fit'></img>
                                 </div>
                             </div>
                         </>
                     }
+                    {isDone &&
+                        <div>
+                            <h1 className="text-2xl font-semibold text-black">Done!</h1>
+
+                            <div className='w-full flex mt-10'>
+                                <p>Check your inbox for a calendar invite!</p>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
-            <div className='flex flex-col gap-4 absolute right-10 h-screen justify-center'>
-                {files.map((file, index) => (
-                    <div className='flex gap-2'>
-                        <svg className="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 221.25V416a48 48 0 01-48 48H144a48 48 0 01-48-48V96a48 48 0 0148-48h98.75a32 32 0 0122.62 9.37l141.26 141.26a32 32 0 019.37 22.62z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M256 56v120a32 32 0 0032 32h120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
-                        <p key={index}>{file.name}</p>
+                {!isUploading && !isDone && files.length > 0 &&
+                    <div className='flex flex-col gap-4 absolute right-20 h-screen self-start mt-40'>
+                        <div className='flex flex-col gap-4'>
+                            <p className='font-bold'>Documents:</p>
+                            { files.map((file, index) => (
+                                <div className='flex gap-2'>
+                                    <svg className="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 221.25V416a48 48 0 01-48 48H144a48 48 0 01-48-48V96a48 48 0 0148-48h98.75a32 32 0 0122.62 9.37l141.26 141.26a32 32 0 019.37 22.62z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path d="M256 56v120a32 32 0 0032 32h120" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
+                                    <p key={index}>{file.name}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                ))}
-            </div>
+                }
         </div>
     )
 }

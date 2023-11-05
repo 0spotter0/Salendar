@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { GeistSans, GeistMono } from 'geist/font'
 import './globals.css'
+import Navbar from '@/app/ui/Navbar'
 
 export const metadata: Metadata = {
-  title: 'Shameless OpenAI Sellout',
-  description: 'sam altman fuming rn',
+  title: 'Salendar'
 }
 
 export default function RootLayout({
@@ -14,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={GeistSans.className}>{children}</body>
+      <body className={`${GeistSans.className} bg-white text-black overflow-y-hidden`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   )
 }

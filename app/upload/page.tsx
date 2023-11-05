@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import FileDrop from '@/app/ui/FileDrop'
-import { uploadFile } from '@/app/lib/uploadFile'
+// import { uploadFile } from '@/app/lib/uploadFile'
 
 export default function Upload() {
     const [files, setFiles] = useState<File[]>([])
@@ -23,13 +23,27 @@ export default function Upload() {
             return;
         }
 
-        files.forEach((file: File) => { //FIXME: this async is bad-- need to await promise.all i think
+        files.forEach(async (file: File) => { //FIXME: this async is bad-- need to await promise.all i think
             console.log(file.name)
 
-            uploadFile(file).then(() => console.log("done uploading"))
-        });
+            const formData = new FormData()
+            formData.append("file", file as File)
+            console.log("sending to server");
 
-        setIsUploading(false)
+            const response = await fetch("http://localhost:8000/upload", {
+                method: 'POST',
+                body: formData
+            });
+
+            console.log("got response");
+
+            const data = await response.json();
+            if (data.syllabus_text) {
+                console.log(`got text: ${data.syllabus_text}`)
+            } else {
+                console.log('got NOTHING');
+            }
+        });
     }
 
 

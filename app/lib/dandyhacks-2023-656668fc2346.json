@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dandyhacks-2023",
+  "private_key_id": "656668fc23460710e75595feaf94083d406e626f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDkQ5x90WJX6wWV\n5cJ9xIeUhZfLA18jFodQ5F03Q0nEnCWCoKEc730ql5RuC24qBVqnEy5tyF7Dda0u\nk+uuglgmJpowhoz6Lj8nff2E64VYArZvG7ALNtw/Nk1eFmzqYACxlLCCsYnEm1w/\n32e7/WzEMIrTgeO4AGsOwtDU/bJe0aaaxW+oY3vFhp0K1IGcn4JAkck2K7RPBiQW\nJXjE7BsoUUVKDpORqdAHdfClp3OkGTcQG2eZh5Sj+89Lj9XPths7wwoViThWz5br\nlASFrXYE7LBKcStPfNDTngoMl0B6zUUbL5VJyymhEQWu34zJqX+x/ZthNWq3kya7\nZMHxst8xAgMBAAECggEAE0iU8VodfUDpDWNGHXrbW1Q34RotUNkH4HESYOdJ1Za9\nYn4wbjHbOJxqmStVCK7AHEo2C2c4fjm0QjGT4P+486wiLYRIZ6A9jJgLsU12S9ua\nzuMfaaseSybKvW6Wj+xBUr81dC0MbvQTBIBakpqTtDVHnRulgbdjU/FoU/4EshbK\nLDUsVs4zWWAreoRnhIdN2wgE6LN5BpKHQWQECwxtPBfcy0u+K2eoeTnYUBJrTkl7\nvpXmUszj5CxGsmqA4Mo/KeIUyhosu31oBW972IZF7BW0Ot+oaaEqW3wkFc2DupXi\nokP+dv+aUKN7sChuO4qXdOqhcRH1E4mgK9E1lgmsIQKBgQD0hVqhys4oDOqqLzDD\np7mb++4f5wwEUQodcNeboLikpuMNauPw91evO7tRkbyMn506UEHGPd/oU6y+MILG\nQoFSf9lz9fVMs4/k6kuA/0JDSsqDPM8RuQLRTLI6WBP/BpypcYpvUj2j4NZUEeeq\n7WpwhQhIhaqbuHQr7GK2j5IseQKBgQDu+uIk0XeKz5bA6WC9nOoLDvw2Bqxhi9eN\nOhZhbVQp4ya9E+xOoG6ptrLl06KdMCSv94+bRLXztAPACl9r1IvsQywRzZkzBcD0\nbx9w3g76TKhkX8gAmwzx7QoGaHITmoodp9AR+BrEUtx3sVqhPkHVbFjtm+BX3PD8\nXDnnuNAqeQKBgQDu1596sA2FI3DIgUXhp2Bu07t6YAXl5X662TFRa8FP20+nGITE\nJ+X3XaIQAAmrVnGOtzw4NtISLkFqmRn0LJwDiKxQT6ymmjJwyMatnygLcO+1F12w\nEwaEiKUCxmvpzHyUKjqtmChrfb/86GxhEnzIoblAlYfbiWW4TbLyXfTLCQKBgBSp\nOBf6zB0CKYRwKN77y/g8yW1aUlj0oCQjm3+81gPxEY5TRKDfmfGuS/U2wN5aJTHZ\nc173J8v0Ckb2Hp3R+G7qt8qqPc59dtsrKEq3yA+3xO84oK/8t7fKyI0ZRpOPTtWV\nhpWnH5lNmKX4fV9nZIWxIlcYnOK7xVHsH017WvPxAoGAbQNWRHJxxYvnYvb9a3+3\nKken8lbosPgxpJv+C7QWxm1dmLh5CwC+48toTwSbvFFOy7DY9/f82ouj0XFa8Xdt\nsVnigu5seu9eGuSzmllyjsuHe3L+eskbIrDIOc/yPfyjuAHPlw1jR4FuG6Is5v5l\nzKqZ5ry7ABPQCgtx4hGY7G0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "dddddandyhacks@dandyhacks-2023.iam.gserviceaccount.com",
+  "client_id": "109849943542732668836",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dddddandyhacks%40dandyhacks-2023.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
